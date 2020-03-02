@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block content %}
+    <section class="main-section">
+        <div class="container">
+            <div class="row justify-content-center padding-t">
+                <div class="col-md-12 m-auto">
+                    <div class="card bg-main  mb-2">
+                        <div class="card-body">
+                            <a href="{% url 'index' %}"><img class="img-fluid" src="{% static 'img/logo.png' %}"></a>
+                            <a href="{% url 'register' %}"> <span class="sign-text float-right ">Sign Up
+                                here <img class="ml-2" src="{% static 'img/right_arrow_icon.png' %}"></span></a>
+                            <div class="row mt-4 justify-content-center">
+                                <div class="col-md-4">
+                                    <h3 class="text-center mt-5">Sign in </h3>
+                                    <h6 class="text-center mt-4 font-weight-normal">Yo! Sign in and start discovering
+                                        ScratchNation</h6>
+                                    {% if form.errors %}
+                                        <p>Your username and password didn't match. Please try again.</p>
+                                      {% endif %}
+
+                                      {% if next %}
+                                        {% if user.is_authenticated %}
+                                          <p>Your account doesn't have access to this page. To proceed,
+                                          please login with an account that has access.</p>
+                                        {% else %}
+                                          <p>Please login to see this page.</p>
+                                        {% endif %}
+                                      {% endif %}
+                                    <form class="mt-5" action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="input-group">
+                                            <input type="email" class="form-control bg-main border-sign"
+                                                   id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="E-mail" name="email">
+                                            <span class="input-group-append">
+                                                        <button class="btn  bg-main border-sign2" type="button">
+                                                            <i class="far fa-envelope text-muted"></i>
+                                                        </button>
+                                                      </span>
+                                        </div>
+                                        {{ form.errors.email }}
+                                        <div class="input-group mt-4">
+                                            <input type="password" class="form-control bg-main border-sign"
+                                                   id="exampleInputPassword1" placeholder="Password" name="password">
+                                            <span class="input-group-append">
+                                                        <button class="btn  bg-main border-sign2" type="button">
+                                                            <i class="fas fa-eye-slash text-muted"></i>
+                                                        </button>
+                                                      </span>
+                                        </div>
+                                        {{ form.errors.password }}
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-sign mt-4 mb-1">Submit</button>
+                                            <br>
+                                            <a class="text-decoration-none text-muted link-size" href="#">Forgot
+                                                password?</a>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="resp-text-2">
+                                        <a class="text-decoration-none text-muted link-size" href="#">About</a>
+                                        &nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Faq's</a>
+                                        &nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Privacy
+                                            policy</a>&nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Term and
+                                            conditions</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="resp-text">
+                                        <span class="text-muted link-size">Copyright 2020 by ScratchNation.com. All
+                                            Right Reserved.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

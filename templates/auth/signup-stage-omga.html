@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} SignUp {% endblock %}
+{% block content %}
+    <section class="main-section">
+        <div class="container">
+            <div class="row justify-content-center padding-t">
+                <div class="col-md-12 m-auto">
+                    <div class="card bg-main  mb-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                            <a href="{% url 'index' %}"><img class="img-fluid" src="{% static 'img/logo.png' %}"></a>
+                                    <a href="{% url 'login' %}"> <span class="sign-text float-right ">Have an already account! Sign in
+                                here <img class="ml-2" src="{% static 'img/right_arrow_icon.png' %}"></span></a>
+                            </div>
+                        </div>
+                                <div class="row mt-4 justify-content-center">
+                                    <div class="col-md-4">
+                                        <h3 class="text-center">Sign up </h3>
+                                        <h6 class="text-center mt-3 font-weight-normal">Yo! Sign up and start discovering ScratchNation</h6>
+                                        <form action="{% url 'register' %}/omga" method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="text-center">
+                                        <img src="{% static 'img/image2.png' %}" class="img-fluid mt-3" >
+                                        <div class="image-upload2">
+                                            <label for="file-input">
+                                                <img class="img-position2 pointr" src="{% static 'img/edit.png' %}"
+                                                    width="30">
+                                            </label>
+
+                                            <input id="file-input" type="file" name="cover_photo"/>
+                                            {{ form.errors.cover_photo }}
+                                        </div>
+                                        <h5 class="mt-1">John Doe</h5>
+                                        <h6 class="text-muted mt-3">Pages with Cover Photo show up higher in search result</h6>
+                                        <button class="btn btn-pic mt-3">Add a Cover Phot</button>
+                                        <h6 class="text-muted mt-3">High resolution horizental image work well here</h6>
+{% comment %}
+                                        <a href="{% url 'register' %}/gama"  class="btn btn-sign2 mt-4 mb-1"> Back</a>
+{% endcomment %}
+                                        <button type="submit"  class="btn btn-sign mt-4 mb-1 ml-2">Register</button>
+                                          <br>
+                                    </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="resp-text-2">
+                                    <a class="text-decoration-none text-muted link-size" href="#">About</a>
+                                    &nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Faq's</a>
+                                    &nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Privacy
+                                        policy</a>&nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Term and
+                                        conditions</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="resp-text">
+                                        <span class="text-muted link-size">Copyright 2020 by ScratchNation.com. All
+                                            Right Reserved.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

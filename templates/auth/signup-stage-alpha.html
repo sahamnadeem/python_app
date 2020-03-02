@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} SignUp {% endblock %}
+{% block content %}
+    <section class="main-section">
+        <div class="container">
+            <div class="row justify-content-center padding-t">
+                <div class="col-md-12 m-auto">
+                    <div class="card bg-main  mb-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="{% url 'index' %}"><img class="img-fluid"
+                                                                     src="{% static 'img/logo.png' %}"></a>
+                                    <a href="{% url 'login' %}"> <span class="sign-text float-right ">Have an already account! Sign in
+                                here <img class="ml-2" src="{% static 'img/right_arrow_icon.png' %}"></span></a>
+                                </div>
+                            </div>
+                            <div class="row mt-4 justify-content-center">
+                                <div class="col-md-4">
+                                    <h3 class="text-center">Sign up </h3>
+                                    <h6 class="text-center mt-3 font-weight-normal">Yo! Sign up and start discovering
+                                        ScratchNation</h6>
+                                    <form class="mt-5" action="{% url 'register' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg-main border-sign"
+                                                   id="exampleInputName1" aria-describedby="emailHelp"
+                                                   placeholder="Name" name="name" value="{{ form.name.value }}">
+                                            {{ form.errors.name }}
+                                        </div>
+
+                                        <div>
+                                            <label class="form-check-label text-muted ml-2 mt-2" for="inlineCheckbox3">Select
+                                                Gender</label>
+                                            <br>
+                                            <div class="form-check form-check-inline mt-3 ml-2">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                       value="male" name="gender" {%  if form.gender.value == 'male' %} checked {% endif %}>
+                                                <label class="form-check-label text-muted"
+                                                       for="inlineCheckbox1">Male</label>
+                                            </div>
+                                            <div class="form-check form-check-inline ml-2">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                       value="female" name="gender" {%  if form.gender.value == 'female' %} checked {% endif %}>
+                                                <label class="form-check-label text-muted"
+                                                       for="inlineCheckbox2">Female</label>
+                                            </div>
+                                            <div class="form-check form-check-inline ml-2">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                                                       value="others" name="gender" {%  if form.gender.value == 'others' %} checked {% endif %}>
+                                                <label class="form-check-label text-muted"
+                                                       for="inlineCheckbox3">Other</label>
+                                            </div>
+                                        </div>
+                                        {{ form.errors.gender }}
+                                        <select class="form-control bg-main border-sign mt-3" name="country">
+                                            <option value="pakistan" {%  if form.country.value == 'pakistan' %} selected {% endif %}>Pakistan</option>
+                                            <option value="india" {%  if form.country.value == 'india' %} selected {% endif %}>India</option>
+                                            <option value="usa" {%  if form.country.value == 'usa' %} selected {% endif %}>USA</option>
+                                        </select>
+                                        {{ form.errors.country }}
+                                        <div class="form-group mt-3">
+                                            <input type="email" class="form-control bg-main border-sign"
+                                                   id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="E-mail" name="email" value="{{ form.email.value }}">
+                                        </div>
+                                        {{ form.errors.email }}
+
+                                        <div class="form-group mt-3">
+                                            <input type="password" class="form-control bg-main border-sign"
+                                                   id="exampleInputPassword1" placeholder="Password" name="password">
+                                        </div>
+                                        {{ form.errors.password }}
+                                        <div class="text-center">
+                                            <button href="{% url 'register' %}/beta" class="btn btn-sign mt-4 mb-1"
+                                                    type="submit"> Next
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="resp-text-2">
+                                        <a class="text-decoration-none text-muted link-size" href="#">About</a>
+                                        &nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Faq's</a>
+                                        &nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Privacy
+                                            policy</a>&nbsp;|&nbsp;
+                                        <a class="text-decoration-none text-muted link-size" href="#">Term and
+                                            conditions</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="resp-text">
+                                        <span class="text-muted link-size">Copyright 2020 by ScratchNation.com. All
+                                            Right Reserved.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block script %}
+    <script>
+        $("input:checkbox").on('click', function () {
+            // in the handler, 'this' refers to the box clicked on
+            var $box = $(this);
+            if ($box.is(":checked")) {
+                // the name of the box is retrieved using the .attr() method
+                // as it is assumed and expected to be immutable
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                // the checked state of the group/box on the other hand will change
+                // and the current value is retrieved using .prop() method
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+            } else {
+                $box.prop("checked", false);
+            }
+        });
+    </script>
+{% endblock %}
+

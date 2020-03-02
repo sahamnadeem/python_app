@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} SignUp {% endblock %}
+{% block content %}
+    <section class="main-section">
+        <div class="container">
+            <div class="row justify-content-center padding-t">
+                <div class="col-md-12 m-auto">
+                    <div class="card bg-main  mb-2">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                            <a href="{% url 'index' %}"><img class="img-fluid" src="{% static 'img/logo.png' %}"></a>
+                                    <a href="{% url 'login' %}"> <span class="sign-text float-right ">Have an already account! Sign in
+                                here <img class="ml-2" src="{% static 'img/right_arrow_icon.png' %}"></span></a>
+                            </div>
+                        </div>
+                                <div class="row mt-4 justify-content-center">
+                                    <div class="col-md-4">
+                                        <h3 class="text-center">Sign up </h3>
+                                        <h6 class="text-center mt-3 font-weight-normal">Yo! Sign up and start discovering ScratchNation</h6>
+                                        <form class="mt-5" action="{% url 'register' %}/beta" method="post">
+                                            {% csrf_token %}
+                                            <div class="form-group">
+                                                <input type="text" class="form-control bg-main border-sign"
+                                                    id="exampleInputName1" aria-describedby="emailHelp"
+                                                    placeholder="Add your website" name="web_url" value="{{ form.web_url.value }}">
+                                                {{ form.errors.web_url }}
+                                            </div>
+                                            <div class="form-group mt-3">
+                                                <input type="text" class="form-control bg-main border-sign"
+                                                    id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                    placeholder="About you" name="about" value="{{ form.about.value }}">
+                                            {{ form.errors.about }}
+                                            </div>
+                                            <div>
+                                            <label class="form-check-label text-muted ml-2 mt-2 font-weight-bold" for="inlineCheckbox3">Select Skills</label>
+                                            <br>
+                                            <div class="form-check form-check-inline mt-3 ">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="turntablist" name="skills" {%  if form.skills.value == 'turntablist' %} checked {% endif %}>
+                                                <label class="form-check-label text-muted" for="inlineCheckbox1">Turntablist</label>
+                                              </div>
+                                            </div>
+                                            {{ form.errors.skills }}
+                                            <div class="text-center">
+                                                <a href="{% url 'register' %}"  class="btn btn-sign2 mt-4 mb-1"> Back</a>
+                                              <button type="submit" class="btn btn-sign mt-4 mb-1 ml-2">Next</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="resp-text-2">
+                                    <a class="text-decoration-none text-muted link-size" href="#">About</a>
+                                    &nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Faq's</a>
+                                    &nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Privacy
+                                        policy</a>&nbsp;|&nbsp;
+                                    <a class="text-decoration-none text-muted link-size" href="#">Term and
+                                        conditions</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="resp-text">
+                                        <span class="text-muted link-size">Copyright 2020 by ScratchNation.com. All
+                                            Right Reserved.</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

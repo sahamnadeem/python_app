@@ -1,0 +1,135 @@
+.main-section{
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;  
+    width: 100%;
+    background-size:100% 100% !important;
+    height: 125vh;
+    
+  }
+  .bg-main{
+      background-color: #edf4fc !important;
+  }
+  .sign-text{
+      color: black;
+      font-weight: 600;
+      font-size: 14px;
+  }
+  h6{
+      font-size: 0.9em;
+  }
+  .border-sign{
+    border-top: none;
+     border-bottom: 2px solid #e5e5e5;
+     border-left: none;
+     border-right: none;
+     border-radius: 0;
+  }
+  .border-sign:focus{
+    border-top: none;
+     border-bottom: 2px solid #196acb;
+     border-left: none;
+     border-right: none;
+     border-radius: 0;
+     box-shadow: none;
+  }
+  .border-sign2{
+    border-top: none;
+     border-bottom: 2px solid #e5e5e5;
+     border-left: none;
+     border-right: none;
+     border-radius: 0;
+  }
+  .btn-sign{
+      background-color: #196acb;
+      color: white;
+      font-weight: 400;
+      padding: 8px 30px;
+  }
+  .btn-sign2{
+    background-color: #34333c;
+    color: white;
+    font-weight: 400;
+    padding: 8px 30px;
+}
+.btn-pic{
+  background-color: transparent;
+  color: #34333c;
+  font-weight: 400;
+  padding: 8px 50px;
+  border: 2px solid #34333c;
+}
+.btn-pic:hover{
+  background-color: #196acb;
+  color: white;
+  font-weight: 400;
+  padding: 8px 50px;
+  border: 2px solid #196acb;
+}
+  .btn:focus{
+    outline: none !important;
+    box-shadow: none;
+  }
+  .link-size{
+    font-size: 0.8em;
+  }
+  .padding-t{
+      padding-top: 3rem;
+  }
+  .resp-text{
+      text-align: right;
+  }
+  .resp-text-2{
+    text-align: left;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;       /* Remove default arrow */
+  background-image: url('../img/down_arrow.png');
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  padding: .5em;
+  padding-right: 1.5em;
+  font-size: 15px !important;
+}
+.img-position{
+  position: absolute; 
+  top: 37%;
+  right: 32%;
+}
+.img-position2{
+  position: absolute; 
+  top: 37%;
+  right: 9%;
+}
+.image-upload>input {
+  display: none;
+}
+.image-upload2>input {
+  display: none;
+}
+.btn:hover{
+  color: white !important;
+}
+  @media (max-width: 780px){
+    .resp-text{
+        text-align: center;
+    }
+    .resp-text-2{
+        text-align: center;
+    }
+    .main-section{
+        background-image: url(../img/background.png);
+        background-repeat: no-repeat;  
+        width: 100%;
+        background-size:100% 100% !important;
+        height: auto;
+        
+      }
+    }
+
+
+.errorlist li{
+    color: red;
+}
